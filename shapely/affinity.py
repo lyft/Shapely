@@ -17,9 +17,9 @@ def affine_transform(geom, matrix):
 
     which represents the augmented matrix::
 
-        [x']   / a  b xoff \ [x]
+        [x']   | a  b xoff | [x]
         [y'] = | d  e yoff | [y]
-        [1 ]   \ 0  0   1  / [1]
+        [1 ]   | 0  0   1  | [1]
 
     or the equations for the transformed coordinates::
 
@@ -32,10 +32,10 @@ def affine_transform(geom, matrix):
 
     which represents the augmented matrix::
 
-        [x']   / a  b  c xoff \ [x]
+        [x']   | a  b  c xoff | [x]
         [y'] = | d  e  f yoff | [y]
         [z']   | g  h  i zoff | [z]
-        [1 ]   \ 0  0  0   1  / [1]
+        [1 ]   | 0  0  0   1  | [1]
 
     or the equations for the transformed coordinates::
 
@@ -142,9 +142,9 @@ def rotate(geom, angle, origin='center', use_radians=False):
 
     The affine transformation matrix for 2D rotation is:
 
-      / cos(r) -sin(r) xoff \ 
+      | cos(r) -sin(r) xoff |
       | sin(r)  cos(r) yoff |
-      \   0       0      1  /
+      |   0       0      1  |
 
     where the offsets are calculated from the origin Point(x0, y0):
 
@@ -179,10 +179,10 @@ def scale(geom, xfact=1.0, yfact=1.0, zfact=1.0, origin='center'):
 
     The general 3D affine transformation matrix for scaling is:
 
-        / xfact  0    0   xoff \ 
+        | xfact  0    0   xoff |
         |   0  yfact  0   yoff |
         |   0    0  zfact zoff |
-        \   0    0    0     1  /
+        |   0    0    0     1  |
 
     where the offsets are calculated from the origin Point(x0, y0, z0):
 
@@ -211,9 +211,9 @@ def skew(geom, xs=0.0, ys=0.0, origin='center', use_radians=False):
 
     The general 2D affine transformation matrix for skewing is:
 
-        /   1    tan(xs) xoff \ 
+        |   1    tan(xs) xoff |
         | tan(ys)  1     yoff |
-        \   0      0       1  /
+        |   0      0       1  |
 
     where the offsets are calculated from the origin Point(x0, y0):
 
@@ -243,10 +243,10 @@ def translate(geom, xoff=0.0, yoff=0.0, zoff=0.0):
 
     The general 3D affine transformation matrix for translation is:
 
-        / 1  0  0 xoff \ 
+        | 1  0  0 xoff |
         | 0  1  0 yoff |
         | 0  0  1 zoff |
-        \ 0  0  0   1  /
+        | 0  0  0   1  |
     """
     matrix = (1.0, 0.0, 0.0,
               0.0, 1.0, 0.0,
